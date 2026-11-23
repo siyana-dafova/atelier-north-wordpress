@@ -1,0 +1,106 @@
+/**
+ * Design tokens.
+ *
+ * Fluid values scale linearly between a 375px and a 1440px viewport.
+ * Breakpoints (custom properties cannot be used in media queries):
+ * tablet 768px, desktop 1024px, wide 1440px.
+ */
+
+:root {
+	/* Colors: brand */
+	--color-bg: #f5f3ee;
+	--color-surface: #e5e0d6;
+	--color-muted: #b8aa96; /* Decorative only, too light for text. */
+	--color-text: #34352f;
+	--color-accent: #777d6b; /* Large text and decoration only (3.8:1 on --color-bg). */
+
+	/* Colors: derived */
+	--color-dark: #262722;
+	--color-on-dark: var(--color-bg);
+	--color-text-soft: #5b5d53;
+	--color-border: color-mix(in srgb, var(--color-text) 16%, transparent);
+	--color-border-strong: color-mix(in srgb, var(--color-text) 40%, transparent);
+	--color-overlay: rgb(38 39 34 / 0.45);
+	--color-error: #9a3b2e;
+	--color-success: #4f6b4a;
+	--color-focus: var(--color-text);
+
+	/* Typography: families */
+	--font-display: "Cormorant Garamond", "Times New Roman", georgia, serif;
+	--font-body: "Manrope", system-ui, -apple-system, "Segoe UI", roboto, sans-serif;
+
+	/* Typography: weights */
+	--weight-regular: 400;
+	--weight-medium: 500;
+	--weight-semibold: 600;
+
+	/* Typography: scale (mobile -> desktop) */
+	--text-display: clamp(3.25rem, 1.929rem + 5.634vw, 7rem); /* 52 -> 112px */
+	--text-h1: clamp(2.75rem, 1.782rem + 4.131vw, 5.5rem); /* 44 -> 88px */
+	--text-h2: clamp(2.125rem, 1.641rem + 2.066vw, 3.5rem); /* 34 -> 56px */
+	--text-h3: clamp(1.625rem, 1.405rem + 0.939vw, 2.25rem); /* 26 -> 36px */
+	--text-h4: clamp(1.25rem, 1.162rem + 0.376vw, 1.5rem); /* 20 -> 24px */
+	--text-lead: clamp(1.0625rem, 0.996rem + 0.282vw, 1.25rem); /* 17 -> 20px */
+	--text-body: clamp(0.9375rem, 0.916rem + 0.094vw, 1rem); /* 15 -> 16px */
+	--text-small: clamp(0.8125rem, 0.791rem + 0.094vw, 0.875rem); /* 13 -> 14px */
+	--text-label: clamp(0.6875rem, 0.666rem + 0.094vw, 0.75rem); /* 11 -> 12px */
+
+	/* Typography: line heights */
+	--leading-display: 1.02;
+	--leading-heading: 1.12;
+	--leading-snug: 1.35;
+	--leading-body: 1.65;
+
+	/* Typography: letter spacing */
+	--tracking-display: -0.015em;
+	--tracking-heading: -0.01em;
+	--tracking-label: 0.14em;
+
+	/* Spacing: 4/8-based scale */
+	--space-1: 0.25rem; /* 4px */
+	--space-2: 0.5rem; /* 8px */
+	--space-3: 0.75rem; /* 12px */
+	--space-4: 1rem; /* 16px */
+	--space-5: 1.5rem; /* 24px */
+	--space-6: 2rem; /* 32px */
+	--space-7: 3rem; /* 48px */
+	--space-8: 4rem; /* 64px */
+	--space-9: 5rem; /* 80px */
+	--space-10: 6rem; /* 96px */
+	--space-11: 8rem; /* 128px */
+	--section-space: clamp(4.5rem, 3.444rem + 4.507vw, 7.5rem); /* 72 -> 120px */
+
+	/* Layout */
+	--container-max: 1440px;
+	--gutter: clamp(1.25rem, 0.282rem + 4.131vw, 4rem); /* 20 -> 64px */
+	--grid-columns: 4;
+	--grid-gap: clamp(1rem, 0.824rem + 0.751vw, 1.5rem); /* 16 -> 24px */
+	--measure: 68ch;
+	--header-height: 72px;
+
+	/* Motion */
+	--duration-fast: 150ms;
+	--duration-base: 300ms;
+	--duration-slow: 600ms;
+	--duration-reveal: 900ms;
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@media (min-width: 1024px) {
+
+	:root {
+		--grid-columns: 12;
+		--header-height: 88px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	:root {
+		--duration-fast: 0.01ms;
+		--duration-base: 0.01ms;
+		--duration-slow: 0.01ms;
+		--duration-reveal: 0.01ms;
+	}
+}
