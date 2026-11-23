@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<ruleset name="Atelier North">
+	<description>Coding standards for the Atelier North theme and plugin.</description>
+
+	<file>wp-content/themes/atelier-north</file>
+	<file>wp-content/plugins/atelier-north-core</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/assets/build/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg name="parallel" value="8"/>
+	<arg value="sp"/>
+
+	<config name="testVersion" value="8.1-"/>
+	<config name="minimum_wp_version" value="6.6"/>
+
+	<rule ref="WordPress"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="atelier-north"/>
+				<element value="atelier-north-core"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="atelier"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

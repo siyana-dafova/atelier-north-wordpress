@@ -1,6 +1,7 @@
 # Whitelist: ignore everything, then re-include only the custom code.
 /*
 !/.gitignore
+!/.gitattributes
 !/README.md
 !/.editorconfig
 !/composer.json
