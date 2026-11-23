@@ -1,0 +1,28 @@
+# Whitelist: ignore everything, then re-include only the custom code.
+/*
+!/.gitignore
+!/README.md
+!/.editorconfig
+!/composer.json
+!/composer.lock
+!/phpcs.xml.dist
+!/.github/
+
+# Private project notes, never published.
+/docs/
+
+!/wp-content/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/atelier-north/
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/atelier-north-core/
+
+# Build and dependency artifacts inside the custom code.
+node_modules/
+vendor/
+*.log
+.DS_Store
+Thumbs.db
