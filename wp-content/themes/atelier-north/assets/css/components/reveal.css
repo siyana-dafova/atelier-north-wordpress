@@ -1,0 +1,24 @@
+/**
+ * Reveal on scroll. Add data-reveal to an element; assets/js/reveal.js adds .is-revealed.
+ *
+ * Hidden state only applies with JS (html.js) and without reduced motion,
+ * so content is never hidden when the script cannot run.
+ * Optional stagger: style="--reveal-delay: 2" (steps of 100ms).
+ */
+
+@media (prefers-reduced-motion: no-preference) {
+
+	.js [data-reveal] {
+		opacity: 0;
+		transform: translateY(1.5rem);
+		transition:
+			opacity var(--duration-reveal) var(--ease-out),
+			transform var(--duration-reveal) var(--ease-out);
+		transition-delay: calc(var(--reveal-delay, 0) * 100ms);
+	}
+
+	.js [data-reveal].is-revealed {
+		opacity: 1;
+		transform: none;
+	}
+}

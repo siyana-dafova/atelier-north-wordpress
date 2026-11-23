@@ -1,0 +1,100 @@
+/**
+ * Typography classes, independent of the HTML element they are applied to.
+ */
+
+.display,
+.h1,
+.h2,
+.h3,
+.h4 {
+	font-family: var(--font-display);
+	font-weight: var(--weight-regular);
+	line-height: var(--leading-heading);
+	letter-spacing: var(--tracking-heading);
+	text-wrap: balance;
+}
+
+.display {
+	font-size: var(--text-display);
+	line-height: var(--leading-display);
+	letter-spacing: var(--tracking-display);
+}
+
+.h1 {
+	font-size: var(--text-h1);
+	line-height: var(--leading-display);
+	letter-spacing: var(--tracking-display);
+}
+
+.h2 {
+	font-size: var(--text-h2);
+}
+
+.h3 {
+	font-size: var(--text-h3);
+}
+
+.h4 {
+	font-size: var(--text-h4);
+}
+
+.lead {
+	max-width: var(--measure);
+	font-size: var(--text-lead);
+	line-height: var(--leading-snug);
+}
+
+.label,
+.eyebrow {
+	font-family: var(--font-body);
+	font-size: var(--text-label);
+	font-weight: var(--weight-medium);
+	line-height: 1.4;
+	letter-spacing: var(--tracking-label);
+	text-transform: uppercase;
+}
+
+.eyebrow {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	color: var(--color-text-soft);
+}
+
+.eyebrow::before {
+	content: "";
+	flex: none;
+	width: var(--space-6);
+	height: 1px;
+	background-color: currentcolor;
+}
+
+.text-soft {
+	color: var(--color-text-soft);
+}
+
+/* Mixed headline: italic serif accent word, optional staggered lines. */
+
+:is(h1, h2, h3, .display, .h1, .h2, .h3) em {
+	font-style: italic;
+	color: var(--color-accent);
+}
+
+.section--dark :is(h1, h2, h3, .display, .h1, .h2, .h3) em {
+	color: var(--color-muted);
+}
+
+.line {
+	display: block;
+}
+
+.line--indent {
+	padding-inline-start: 1.5em;
+}
+
+/* Dark sections */
+
+.section--dark .eyebrow,
+.section--dark .text-soft {
+	color: var(--color-muted);
+}

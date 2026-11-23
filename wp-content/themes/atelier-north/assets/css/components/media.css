@@ -1,0 +1,58 @@
+/**
+ * Image wrapper with fixed aspect ratios matching the registered image sizes.
+ */
+
+.media {
+	position: relative;
+	overflow: hidden;
+	aspect-ratio: var(--media-ratio, auto);
+	background-color: var(--color-surface);
+}
+
+.media > img,
+.media > picture,
+.media > picture > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.media--portrait {
+	--media-ratio: 4 / 5; /* an-project-large, an-project-card, an-service-card, an-hero-mobile */
+}
+
+.media--landscape {
+	--media-ratio: 10 / 7; /* an-editorial */
+}
+
+.media--hero {
+	--media-ratio: 48 / 25; /* an-hero */
+}
+
+.media--square {
+	--media-ratio: 1;
+}
+
+.media--overlay::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-color: var(--color-overlay);
+	pointer-events: none;
+}
+
+/* Zoom only for real hover devices; touch would leave the image stuck zoomed. */
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+
+	.media--zoom img {
+		transition: transform var(--duration-slow) var(--ease-out);
+	}
+
+	.media--zoom:hover img,
+	a:hover .media--zoom img,
+	.card:hover .media--zoom img,
+	.card:focus-within .media--zoom img {
+		transform: scale(1.04);
+	}
+}

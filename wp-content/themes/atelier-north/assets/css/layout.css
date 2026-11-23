@@ -2,7 +2,7 @@
  * Layout: container, grid, sections.
  *
  * Breakpoints: md 768px, lg 1024px, xl 1440px (mobile first, min-width only).
- * Grid: 4 columns below lg, 12 columns from lg.
+ * Grid: 4 columns (mobile), 8 columns from md, 12 columns from lg.
  */
 
 /* Container */
@@ -54,88 +54,132 @@
 }
 
 .span-1 {
-	grid-column: span 1;
+	grid-column: auto / span 1;
 }
 
 .span-2 {
-	grid-column: span 2;
+	grid-column: auto / span 2;
 }
 
 .span-3 {
-	grid-column: span 3;
+	grid-column: auto / span 3;
 }
 
 .span-4 {
-	grid-column: span 4;
+	grid-column: auto / span 4;
 }
 
 @media (min-width: 768px) {
 
 	.span-md-1 {
-		grid-column: span 1;
+		grid-column: auto / span 1;
 	}
 
 	.span-md-2 {
-		grid-column: span 2;
+		grid-column: auto / span 2;
 	}
 
 	.span-md-3 {
-		grid-column: span 3;
+		grid-column: auto / span 3;
 	}
 
 	.span-md-4 {
-		grid-column: span 4;
+		grid-column: auto / span 4;
+	}
+
+	.span-md-5 {
+		grid-column: auto / span 5;
+	}
+
+	.span-md-6 {
+		grid-column: auto / span 6;
+	}
+
+	.span-md-7 {
+		grid-column: auto / span 7;
+	}
+
+	.span-md-8 {
+		grid-column: auto / span 8;
+	}
+
+	.start-md-1 {
+		grid-column-start: 1;
+	}
+
+	.start-md-2 {
+		grid-column-start: 2;
+	}
+
+	.start-md-3 {
+		grid-column-start: 3;
+	}
+
+	.start-md-4 {
+		grid-column-start: 4;
+	}
+
+	.start-md-5 {
+		grid-column-start: 5;
+	}
+
+	.start-md-6 {
+		grid-column-start: 6;
+	}
+
+	.start-md-7 {
+		grid-column-start: 7;
 	}
 }
 
 @media (min-width: 1024px) {
 
 	.span-lg-1 {
-		grid-column: span 1;
+		grid-column: auto / span 1;
 	}
 
 	.span-lg-2 {
-		grid-column: span 2;
+		grid-column: auto / span 2;
 	}
 
 	.span-lg-3 {
-		grid-column: span 3;
+		grid-column: auto / span 3;
 	}
 
 	.span-lg-4 {
-		grid-column: span 4;
+		grid-column: auto / span 4;
 	}
 
 	.span-lg-5 {
-		grid-column: span 5;
+		grid-column: auto / span 5;
 	}
 
 	.span-lg-6 {
-		grid-column: span 6;
+		grid-column: auto / span 6;
 	}
 
 	.span-lg-7 {
-		grid-column: span 7;
+		grid-column: auto / span 7;
 	}
 
 	.span-lg-8 {
-		grid-column: span 8;
+		grid-column: auto / span 8;
 	}
 
 	.span-lg-9 {
-		grid-column: span 9;
+		grid-column: auto / span 9;
 	}
 
 	.span-lg-10 {
-		grid-column: span 10;
+		grid-column: auto / span 10;
 	}
 
 	.span-lg-11 {
-		grid-column: span 11;
+		grid-column: auto / span 11;
 	}
 
 	.span-lg-12 {
-		grid-column: span 12;
+		grid-column: auto / span 12;
 	}
 
 	.start-lg-1 {

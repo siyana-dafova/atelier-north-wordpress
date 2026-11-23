@@ -1,0 +1,101 @@
+/**
+ * Buttons and icons.
+ *
+ * .button--link    underline link-button with arrow (GET IN TOUCH →)
+ * .button--solid   dark filled
+ * .button--outline bordered, follows the text color (works on light and dark)
+ * .button--light   light filled, for dark sections
+ */
+
+.icon {
+	flex: none;
+	width: 1.25em;
+	height: 1.25em;
+	fill: none;
+	stroke: currentcolor;
+	stroke-width: 1.5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-3);
+	min-height: 48px;
+	padding: var(--space-3) var(--space-6);
+	border: 1px solid transparent;
+	font-family: var(--font-body);
+	font-size: var(--text-label);
+	font-weight: var(--weight-semibold);
+	line-height: 1.2;
+	letter-spacing: var(--tracking-label);
+	text-decoration: none;
+	text-transform: uppercase;
+	transition:
+		background-color var(--duration-base) var(--ease-out),
+		border-color var(--duration-base) var(--ease-out),
+		color var(--duration-base) var(--ease-out);
+}
+
+.button .icon {
+	transition: transform var(--duration-base) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+	.button:hover .icon,
+	.button:focus-visible .icon {
+		transform: translateX(0.3em);
+	}
+}
+
+.button--solid {
+	background-color: var(--color-dark);
+	color: var(--color-on-dark);
+}
+
+.button--solid:hover {
+	background-color: var(--color-text);
+	color: var(--color-on-dark);
+}
+
+.button--outline {
+	border-color: currentcolor;
+	color: inherit;
+}
+
+.button--outline:hover {
+	background-color: var(--color-text);
+	border-color: var(--color-text);
+	color: var(--color-bg);
+}
+
+.section--dark .button--outline:hover {
+	background-color: var(--color-on-dark);
+	border-color: var(--color-on-dark);
+	color: var(--color-dark);
+}
+
+.button--light {
+	background-color: var(--color-on-dark);
+	color: var(--color-dark);
+}
+
+.button--light:hover {
+	background-color: var(--color-surface);
+	color: var(--color-dark);
+}
+
+.button--link {
+	min-height: 44px;
+	padding: var(--space-2) 0;
+	border: 0;
+	border-bottom: 1px solid currentcolor;
+	color: inherit;
+}
+
+.button--link:hover {
+	color: inherit;
+}
