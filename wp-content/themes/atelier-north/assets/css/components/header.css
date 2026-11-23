@@ -1,0 +1,239 @@
+/**
+ * Site header and primary navigation.
+ *
+ * Solid by default. .is-overlay is transparent over a dark hero and gains .is-solid
+ * once the sentinel leaves the viewport. The mobile menu only takes over when JS runs.
+ */
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	color: var(--color-text);
+}
+
+.site-header.is-overlay {
+	position: fixed;
+	inset-inline: 0;
+	top: 0;
+}
+
+.site-header__bar {
+	position: relative;
+	z-index: 2;
+	background-color: var(--color-bg);
+	border-bottom: 1px solid var(--color-border);
+	transition:
+		background-color var(--duration-base) var(--ease-out),
+		border-color var(--duration-base) var(--ease-out),
+		color var(--duration-base) var(--ease-out);
+}
+
+.site-header.is-overlay:not(.is-solid):not(.is-menu-open) {
+	color: var(--color-on-dark);
+}
+
+.site-header.is-overlay:not(.is-solid) .site-header__bar {
+	background-color: transparent;
+	border-bottom-color: transparent;
+}
+
+.site-header.is-overlay.is-menu-open .site-header__bar {
+	background-color: var(--color-bg);
+	border-bottom-color: transparent;
+	color: var(--color-text);
+}
+
+.site-header__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	min-height: var(--header-height);
+	gap: var(--space-4) var(--space-5);
+}
+
+.site-header__logo {
+	flex: none;
+}
+
+.site-header__logo .custom-logo-link {
+	display: block;
+}
+
+.site-header__logo .custom-logo {
+	width: auto;
+	height: 2rem;
+}
+
+.site-header__title {
+	font-family: var(--font-display);
+	font-size: 1.75rem;
+	line-height: 1;
+	letter-spacing: var(--tracking-heading);
+	text-decoration: none;
+}
+
+.site-header__title:hover {
+	color: inherit;
+}
+
+@media (min-width: 768px) {
+
+	.site-nav {
+		position: absolute;
+		inset: 0 0 auto;
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		height: var(--header-height);
+		pointer-events: none;
+	}
+
+	.site-nav__list {
+		width: 100%;
+		max-width: var(--container-max);
+		margin-inline: auto;
+		padding-inline: var(--gutter);
+		justify-content: flex-end;
+	}
+
+	.site-nav__list a {
+		pointer-events: auto;
+	}
+}
+
+.site-nav__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-3) var(--space-5);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-nav__list a {
+	font-size: var(--text-label);
+	font-weight: var(--weight-medium);
+	letter-spacing: var(--tracking-label);
+	line-height: 1.4;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.site-nav__list a[aria-current="page"] {
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.45em;
+}
+
+.site-header.is-overlay:not(.is-solid):not(.is-menu-open) .site-nav__list a:hover {
+	color: var(--color-muted);
+}
+
+.site-header.is-overlay:not(.is-solid) :focus-visible {
+	outline-color: var(--color-on-dark);
+}
+
+.site-header__toggle {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 2.75rem;
+	height: 2.75rem;
+	margin-inline-start: auto;
+}
+
+.site-header__toggle-icon--close {
+	display: none;
+}
+
+.site-header.is-menu-open .site-header__toggle-icon--open {
+	display: none;
+}
+
+.site-header.is-menu-open .site-header__toggle-icon--close {
+	display: block;
+}
+
+/* Full-screen menu. Hidden until JS opens it, so the links stay usable without JS. */
+
+@media (max-width: 767px) {
+
+	.js .site-header__toggle {
+		display: inline-flex;
+	}
+
+	.js .site-nav {
+		position: fixed;
+		inset: 0;
+		z-index: 1;
+		padding-top: var(--header-height);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		background-color: var(--color-bg);
+		color: var(--color-text);
+		opacity: 0;
+		visibility: hidden;
+		translate: 0 -1.25rem;
+		transition:
+			opacity var(--duration-base) var(--ease-out),
+			translate var(--duration-base) var(--ease-out),
+			visibility var(--duration-base);
+	}
+
+	.js .site-header.is-menu-open .site-nav {
+		opacity: 1;
+		visibility: visible;
+		translate: 0 0;
+	}
+
+	.js .site-nav__list {
+		flex-direction: column;
+		gap: var(--space-6);
+	}
+
+	.js .site-nav__list a {
+		font-family: var(--font-display);
+		font-size: var(--text-h2);
+		font-weight: var(--weight-regular);
+		letter-spacing: var(--tracking-heading);
+		text-transform: none;
+	}
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+
+	.js .site-nav {
+		translate: none;
+		transition:
+			opacity var(--duration-base) var(--ease-out),
+			visibility var(--duration-base);
+	}
+}
+
+body.is-menu-open {
+	overflow: hidden;
+}
+
+/* Sits at the top of the page. Leaving the viewport turns an overlay header solid. */
+
+.site-header__sentinel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	pointer-events: none;
+}
+
+/* Hero that the overlay header sits on. */
+
+.site-hero {
+	display: flex;
+	align-items: flex-end;
+	min-height: 100vh;
+	min-height: 100svh;
+}

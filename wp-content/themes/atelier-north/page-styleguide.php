@@ -25,12 +25,14 @@ $atelier_colors = array(
 
 $atelier_icons = array( 'arrow-right', 'arrow-left', 'arrow-up-right', 'close', 'menu', 'plus' );
 
+add_filter( 'atelier_transparent_header', '__return_true' );
+
 get_header();
 ?>
 
 <main id="main" class="site-main">
 
-	<section class="section">
+	<section class="section section--dark site-hero">
 		<div class="container">
 			<p class="eyebrow">Design system</p>
 			<h1 class="display">Style <em>guide</em></h1>
