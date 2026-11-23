@@ -1,0 +1,16 @@
+/*
+Theme Name:        Atelier North
+Theme URI:         https://github.com/siyana-dafova/atelier-north-wordpress
+Author:            Siyana Dafova
+Author URI:        https://github.com/siyana-dafova
+Description:       Custom editorial theme for Atelier North, an architecture & interior design studio. Works together with the Atelier North Core plugin.
+Version:           0.1.0
+Requires at least: 6.6
+Tested up to:      7.1
+Requires PHP:      8.1
+License:           GNU General Public License v2 or later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       atelier-north
+*/
+
+/* Styles live in assets/css/ and are enqueued from inc/enqueue.php. */
