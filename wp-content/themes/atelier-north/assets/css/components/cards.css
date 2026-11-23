@@ -35,9 +35,9 @@
 
 .card__title {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: baseline;
-	justify-content: space-between;
-	gap: var(--space-4);
+	gap: var(--space-3);
 }
 
 .card__title a {
@@ -62,6 +62,8 @@
 }
 
 .card__arrow {
+	font-size: var(--text-label);
+	line-height: 1;
 	color: var(--color-text-soft);
 	transition: transform var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
 }
